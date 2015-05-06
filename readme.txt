@@ -49,6 +49,11 @@ None yet
 
 == Changelog ==
 
+= 1.0.2 =
+Release Date: May 06, 2015
+
+Added SVG Support switch
+
 = 1.0.0 =
 * Initial Release.
 
