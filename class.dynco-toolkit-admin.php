@@ -10,6 +10,7 @@ function dynco_toolkit_admin_menu() {
 
 function register_dynco_settings(){
 	register_setting('dynco_settings_group','dynco_manager_role_option');
+    register_setting('dynco_settings_group','dynco_support_svg_option');
 	register_setting('dynco_settings_group','dynco_meta_information_option');
 	register_setting('dynco_settings_group','dynco_remove_generator_filter_option');
 	register_setting('dynco_settings_group','dynco_disallow_file_edit_option');
@@ -39,6 +40,13 @@ function dynco_toolkit_options() {
     echo '<td><input type="checkbox" name="dynco_remove_generator_filter_option" '.checked('1', get_option('dynco_remove_generator_filter_option'),false). 'value="1" /></td>';
 	echo '<td style="font-size:12px; font-weight:bold; font-style:italic;">Removes &quot;&lt;meta name=&quot;generator&quot; content=&quot;WordPress n.n&quot;&gt;&quot; from headers.</td>';
    	echo '</tr>';
+
+    //SVN Support
+    echo '<tr valign="top">';
+    echo '<th scope="row">Support SVG</th>';
+    echo '<td><input type="checkbox" name="dynco_support_svg_option" '.checked('1', get_option('dynco_support_svg_option'),false). 'value="1" /></td>';
+    echo '<td style="font-size:12px; font-weight:bold; font-style:italic;">Add support for SVG files</td>';
+    echo '</tr>';
 	
 	// Meta Information
 	echo '<tr valign="top">';
