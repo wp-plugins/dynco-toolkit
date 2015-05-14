@@ -45,7 +45,7 @@ if( !class_exists( 'Dynco_WordPress_Toolkit' ) ) {
 			add_filter('get_the_generator_'.$type, 'dynco_toolbox_remove_generator_filter');
 		}
 		
-		add_action('wp_head', 'dynco_toolbox_remove_generator_filter');	
+		add_action('wp_head', 'dynco_toolbox_remove_generator_filter',1);	
 	}
 	
 	/**
