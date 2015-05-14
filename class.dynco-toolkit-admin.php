@@ -19,7 +19,12 @@ function register_dynco_settings(){
 	register_setting('dynco_settings_group','dynco_mapped_domains_redirect_option');
 	register_setting('dynco_settings_group','dynco_extra_shortcodes_option');
 	register_setting('dynco_settings_group','dynco_search_all_option');
-	register_setting('dynco_settings_group','dynco_search_all_types');
+	register_setting('dynco_settings_group','dynco_search_all_option');
+	
+	$types = get_post_types();
+	foreach($types as $type){
+		register_setting('dynco_settings_group','dynco_search_all_option_'.$type);
+	}
 }
 
 function dynco_toolkit_options() {
@@ -33,6 +38,24 @@ function dynco_toolkit_options() {
     settings_fields( 'dynco_settings_group' );
     do_settings_sections( 'dynco_settings_group' );
     echo '<table class="form-table">';
+
+    // Dynco Search All content
+	echo '<tr valign="top">';
+    echo '<th scope="row">Search Pages Option</th>';
+    echo '<td><input type="checkbox" name="dynco_search_all_option" '.checked('1', get_option('dynco_search_all_option'),false). 'value="1" /></td>';
+	echo '<td style="font-size:12px; font-weight:bold; font-style:italic;">Extends search function to include Pages as well as Posts</td>';
+   	echo '</tr>';
+	//content types
+	echo '<tr valign="top">';
+    echo '<th scope="row">Page types to include:</th>';
+	echo '<td>';
+	$types = get_post_types();
+	foreach($types as $type){
+		
+		echo '<div style="width:25%; float:left; display:inline;">'.$type.' <input type="checkbox" name="dynco_search_all_option_'.$type.'" '.checked('1', get_option('dynco_search_all_option_'.$type),false). 'value="1"></div>';
+		
+	}
+	echo '<td style="font-size:12px; font-weight:bold; font-style:italic;">Choose content type to include in searches (ctrl+click / cmd+click to choose multiple items)</td>';
     
 	//Remove Generator Filter
 	echo '<tr valign="top">';
@@ -96,29 +119,6 @@ function dynco_toolkit_options() {
     echo '<td><input type="checkbox" name="dynco_extra_shortcodes_option" '.checked('1', get_option('dynco_extra_shortcodes_option'),false). 'value="1" /></td>';
 	echo '<td style="font-size:12px; font-weight:bold; font-style:italic;">Allow usage of extra \'helper\' shortcodes ([dynco_date], [dynco_day], [dynco_time] etc).</td>';
    	echo '</tr>';
-	
-	// Dynco Search All content
-	echo '<tr valign="top">';
-    echo '<th scope="row">Search Pages Option</th>';
-    echo '<td><input type="checkbox" name="dynco_search_all_option" '.checked('1', get_option('dynco_search_all_option'),false). 'value="1" /></td>';
-	echo '<td style="font-size:12px; font-weight:bold; font-style:italic;">Extends search function to include Pages as well as Posts</td>';
-   	echo '</tr>';
-	//content types
-	echo '<tr valign="top">';
-    echo '<th scope="row">Page types to include:</th>';
-	echo '<td>';
-	$types = get_post_types();
-	$selected_types = get_option('dynco_search_all_types',false);
-	echo '<select multiple="multiple" name="dynco_search_all_types[]">';
-	foreach($types as $type){
-		echo '<option value="'.$type.'"';
-		if(in_array($type,$selected_types)){
-			echo ' selected ';
-		}
-		echo '>'.$type.'</option>';
-	}
-	echo '</select>';
-	echo '<td style="font-size:12px; font-weight:bold; font-style:italic;">Choose content type to include in searches (ctrl+click / cmd+click to choose multiple items)</td>';
 	
 	echo '</table>';    
     submit_button();

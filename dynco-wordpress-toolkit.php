@@ -7,7 +7,7 @@
  * Author: Daniel Cook, Dynamic Consultants
  * Author URI: http://dynco.co.uk/
  * License: GPL2+
- * Version: 1.0.2
+ * Version: 1.0.3
  * Text Domain: dynco
  * Domain Path: /languages/
  */

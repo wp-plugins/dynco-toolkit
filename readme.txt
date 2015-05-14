@@ -4,7 +4,7 @@ Donate link: http://dynco.co.uk/
 Tags: functions, helpers, settings
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,12 @@ None yet
 1. Plugin settings
 
 == Changelog ==
+
+= 1.0.3 =
+Release Date: May 14, 2015
+
+Changed searchable post types to checkboxes
+Moved position of searchable post types in admin view to top
 
 = 1.0.2 =
 Release Date: May 06, 2015

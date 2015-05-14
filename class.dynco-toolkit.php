@@ -15,16 +15,14 @@ if( !class_exists( 'Dynco_WordPress_Toolkit' ) ) {
 			if ($query->is_search) {
 				//add all available types to search
 				$types = get_post_types();
-				$searchable = get_option('dynco_search_all_types');
-				/*
-				$searchable = array();
-				foreach($types as $key=>$val){
-					$exclude = array('revision', 'nav_menu_item','product_variation','shop_order','shop_order_refund','shop_coupon','shop_webhook');
-					if(!in_array($val,$exclude)){
-						$searchable[] = $val;
+				foreach($types as $type){
+					$check = get_option('dynco_search_all_option_'.$type);
+					if($check==1){
+						$searchable[] = $type;
 					}
 				}
-				*/
+				//$searchable = get_option('dynco_search_all_types');
+				
 				$query->set('post_type', $searchable);
 			}
 			return $query;
