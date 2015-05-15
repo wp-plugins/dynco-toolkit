@@ -7,11 +7,14 @@
  * Author: Daniel Cook, Dynamic Consultants
  * Author URI: http://dynco.co.uk/
  * License: GPL2+
- * Version: 1.0.4
+ * Version: 1.0.5
  * Text Domain: dynco
  * Domain Path: /languages/
  */
 
+if(!defined('WPINC')){
+    die;
+}
 
 define( 'DYNCO__MINIMUM_WP_VERSION', '3.9' );
 

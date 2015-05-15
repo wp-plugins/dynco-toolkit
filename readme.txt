@@ -4,7 +4,7 @@ Donate link: http://dynco.co.uk/
 Tags: functions, helpers, settings
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,11 @@ None yet
 1. Plugin settings
 
 == Changelog ==
+
+= 1.0.5 =
+*Release Date: May 15, 2015
+
+*Split functions into separate files for readability
 
 = 1.0.4 =
 *Release Date: May 14, 2015
